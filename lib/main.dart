@@ -1,19 +1,21 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
 
 void main() => runApp(MyWidget());
 
 class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Expanded(
-            child: Row(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Flutter App Demo"),
+        ),
+        body: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
               children: [
                 Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -29,12 +31,16 @@ class MyWidget extends StatelessWidget {
                 ),
               ],
             ),
-          ),
-          SizedBox(height: 8),
-          Expanded(child: Row(children: [],)),
-          SizedBox(height: 16),
-          Expanded(child: Row(children: [],)),
-        ],
+            SizedBox(height: 8),
+            Row(
+              children: [],
+            ),
+            SizedBox(height: 16),
+            Row(
+              children: [],
+            ),
+          ],
+        ),
       ),
     );
   }
