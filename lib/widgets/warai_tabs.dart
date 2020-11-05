@@ -1,14 +1,37 @@
 import 'package:flutter/material.dart';
 
-class TopTabs extends StatefulWidget {
+class WaraiTabs extends StatefulWidget {
   @override
   _TopTabs createState() => _TopTabs();
 }
 
-class _TopTabs extends State<TopTabs> {
+class _TopTabs extends State<WaraiTabs> {
   @override
   Widget build(BuildContext context) {
-    const color1 = const Color(0xff171717);
+     const color1 = const Color(0xff171717);
+    // return Container(
+    //   child: DefaultTabController(
+    //         length: 3,
+    //         child: TabBar(
+    //           unselectedLabelColor: color1,
+    //               indicatorColor: Colors.orange,
+    //               indicator: BoxDecoration(
+    //                 color: Colors.orange,
+    //               ),
+    //               tabs: [
+    //                 Tab(Row(
+    //                   children: [
+    //                     TopTab(),
+    //                   ],
+    //                 )),
+    //                 Tab(hot_tab()),
+    //                 Tab(new_tab()),
+    //               ],
+    //             ),
+    //         ),
+    //       );
+
+
     final top_selected = true;
     final hot_selected = false;
     final new_selected = false;
@@ -112,4 +135,11 @@ class _TopTabs extends State<TopTabs> {
       ],
     );
   }
+}
+class TopTab extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+
+  }
+
 }

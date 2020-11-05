@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_demo2/Pages/landing.dart';
-import 'package:flutter_app_demo2/widgets/top_tabs.dart';
+import 'package:flutter_app_demo2/widgets/warai_tabs.dart';
 import 'package:flutter_app_demo2/widgets/warai_main_listview.dart';
 
 class WaraiScreen extends StatefulWidget {
@@ -40,7 +40,7 @@ class _MyHomePageState extends State<WaraiScreen> {
           margin: EdgeInsets.only(top: 10.0),
           child: Column(
             children: [
-              Center(child: TopTabs()),
+              Center(child: WaraiTabs()),
               Expanded(child: WaraiListView(),
               ),
             ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_demo2/Pages/first_demo.dart';
 import 'package:flutter_app_demo2/Pages/landing.dart';
+import 'package:flutter_app_demo2/Pages/login_screen.dart';
 import 'package:flutter_app_demo2/Pages/warai_screen.dart';
 import 'package:flutter_app_demo2/Route/route_constants.dart';
 
@@ -18,6 +19,9 @@ class RouteGenerator {
       case RouteConstants.PATH_FIRST:
         print("Inside  : " + page_name.name);
         return MaterialPageRoute(builder: (context) => new FirstDemo());
+      case RouteConstants.PATH_FIRST:
+        print("Inside  : " + page_name.name);
+        return MaterialPageRoute(builder: (context) => new LoginScreen());
       default:
       // If there is no such named route in the switch statement, e.g. /third
         print("default we got route : " + page_name.name);

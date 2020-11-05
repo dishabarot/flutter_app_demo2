@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Pages/login_screen.dart';
 import 'package:flutter_app_demo2/Route/route_constants.dart';
 import 'package:flutter_app_demo2/Route/routes.dart';
 import 'package:flutter_app_demo2/Pages/first_demo.dart';
@@ -26,7 +27,9 @@ class ListViewPages extends StatefulWidget {
 }
 
 class _ListViewPagesState extends State<ListViewPages> {
-  final List<String> _page_names = <String>[RouteConstants.PATH_FIRST,RouteConstants.PATH_WARAI];
+  final List<String> _page_names = <String>[RouteConstants.PATH_FIRST,
+    RouteConstants.PATH_WARAI,
+    RouteConstants.PATH_LOGIN];
   final TextStyle _biggerFont = const TextStyle(fontSize: 18);
   @override
   Widget build(BuildContext context) {
@@ -67,6 +70,8 @@ class _ListViewPagesState extends State<ListViewPages> {
           Navigator.push(context,MaterialPageRoute(builder: (context)=>new FirstDemo()));
         else if(page_name == RouteConstants.PATH_WARAI)
           Navigator.push(context,MaterialPageRoute(builder: (context)=>new WaraiScreen()));
+        else if(page_name == RouteConstants.PATH_LOGIN)
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>new LoginScreen()));
       },
     );
   }
