@@ -2,17 +2,25 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app_demo2/Pages/wecome_screen.dart';
 
-class LoginWidgets extends StatefulWidget {
-  _LoginWidgetsState createState() => _LoginWidgetsState();
+class Todo {
+  final String email;
+  final String password;
+
+  Todo(this.email, this.password);
 }
 
-class _LoginWidgetsState extends State<LoginWidgets> {
+class LoginWidgets extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-
   String _email,_password= "";
+  Todo todos;
+  LoginWidgets({Key key, @required this.todos}) : super(key: key);
+  BuildContext context1;
+
   @override
   Widget build(BuildContext context) {
+    context1 = context;
     return Container(
       child: SingleChildScrollView(
         child: Padding(
@@ -84,7 +92,8 @@ class _LoginWidgetsState extends State<LoginWidgets> {
       onPressed: (){
         if(_formKey.currentState.validate()){
           _formKey.currentState.save();
-          loginSuccess("Email: $_email\nPassword: $_password");
+
+          loginSuccess();
         }
       },
       child: Text("Submit",style: TextStyle(color: Colors.white),),
@@ -101,10 +110,15 @@ class _LoginWidgetsState extends State<LoginWidgets> {
     );
   }
 
-  void loginSuccess(String message){
-    Scaffold.of(context).showSnackBar(SnackBar(
-      content: Text(message),
-    ));
+  void loginSuccess(){
+    print("Email : "+_email+" password: "+_password);
+    final todo = Todo(
+      _email,
+      _password,
+    );
+    Navigator.push(context1,MaterialPageRoute(builder: (context)=>new WelcomePage(todo),
+    )
+    );
   }
 }
 
