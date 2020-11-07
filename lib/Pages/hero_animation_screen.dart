@@ -64,9 +64,11 @@ class HeroAnimationScreen extends StatelessWidget {
       ),
     );
   }
+
   static RectTween _createRectTween(Rect begin, Rect end) {
     return MaterialRectCenterArcTween(begin: begin, end: end);
   }
+
   static Widget _buildPage(BuildContext context, String imageName, String description) {
     return Container(
       color: Theme.of(context).canvasColor,
@@ -93,10 +95,24 @@ class HeroAnimationScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
-                description,
-                style: TextStyle(fontWeight: FontWeight.bold),
-                textScaleFactor: 3.0,
+
+              SizedBox(
+                width: kMaxRadius * 2.0,
+                child: Hero(
+                  tag: description,
+                  child: ExpandedText(
+                    true,
+                    child:Center(
+                      child: Text(
+                          description,
+                          style: TextStyle(fontWeight: FontWeight.bold,),
+                          textScaleFactor: 3.0,
+                        ),
+
+                    ),
+
+                  ),
+                ),
               ),
               const SizedBox(height: 20.0),
             ],
@@ -156,5 +172,73 @@ class RadialExpansion extends StatelessWidget {
     );
   }
 }
+
+class ExpandedText extends StatefulWidget {
+  Widget child;
+  bool expand;
+  ExpandedText(bool expand, {Center child})
+  {
+    this.expand= expand;
+    this.child = child;
+  }
+  @override
+  _ExpandedTextState createState() => _ExpandedTextState();
+}
+
+class _ExpandedTextState extends State<ExpandedText> with SingleTickerProviderStateMixin {
+  AnimationController expandController;
+  Animation<double> animation;
+
+  @override
+  void initState() {
+    super.initState();
+    prepareAnimations();
+    _runExpandCheck();
+  }
+  ///Setting up the animation
+  void prepareAnimations() {
+    expandController = AnimationController(
+        vsync: this,
+        duration: Duration(milliseconds: 500)
+    );
+    animation = CurvedAnimation(
+      parent: expandController,
+      curve: Curves.fastOutSlowIn,
+    );
+  }
+
+  void _runExpandCheck() {
+    if(widget.expand) {
+      expandController.forward();
+    }
+    else {
+      expandController.reverse();
+    }
+  }
+
+  @override
+  void didUpdateWidget(ExpandedText oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _runExpandCheck();
+  }
+
+  @override
+  void dispose() {
+    expandController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizeTransition(
+        axisAlignment: 1.0,
+        sizeFactor: animation,
+        child: widget.child
+    );
+  }
+}
+
+
+
 
 

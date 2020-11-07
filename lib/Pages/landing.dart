@@ -8,15 +8,8 @@ import 'package:flutter_app_demo2/Pages/warai_screen.dart';
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'WARAI',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        backgroundColor: Colors.black,
-      ),
-      home: ListViewPages(),
+    return Scaffold(
+      body: ListViewPages(),
     );
   }
 }
