@@ -23,11 +23,24 @@ class FirebaseDemoWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                TextInputTheme( nameController, "Name",),
-                SizedBox(height: 16,),
-                EmailInputThme( nameController, "email",),
-                SizedBox(height: 16,),
-                TextInputTheme( nameController, "Address",),
+                TextInputTheme(
+                  nameController,
+                  "Name",
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                EmailInputThme(
+                  nameController,
+                  "email",
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                TextInputTheme(
+                  nameController,
+                  "Address",
+                ),
                 AllButtons()
               ],
             ),
@@ -37,46 +50,46 @@ class FirebaseDemoWidget extends StatelessWidget {
     );
   }
 
-  Widget AllButtons()
-  {
-    return  Center(
+  Widget AllButtons() {
+    return Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            RaisedButton(
-              child: Text('Create Record'),
-              onPressed: () {
-                createRecord();
-              },
-            ),
-            RaisedButton(
-              child: Text('View Record'),
-              onPressed: () {
-                getData();
-              },
-            ),
-            RaisedButton(
-              child: Text('Update Record'),
-              onPressed: () {
-                updateData();
-              },
-            ),
-            RaisedButton(
-              child: Text('Delete Record'),
-              onPressed: () {
-                deleteData();
-              },
-            ),
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        RaisedButton(
+          child: Text('Create Record'),
+          onPressed: () {
+            createRecord();
+          },
+        ),
+        RaisedButton(
+          child: Text('View Record'),
+          onPressed: () {
+            getData();
+          },
+        ),
+        RaisedButton(
+          child: Text('Update Record'),
+          onPressed: () {
+            updateData();
+          },
+        ),
+        RaisedButton(
+          child: Text('Delete Record'),
+          onPressed: () {
+            deleteData();
+          },
+        ),
+      ],
+    ));
   }
 
   void createRecord() async {
-
     print("Collections : $databaseReference");
-    print("name : $nameController email: $emailController Address : $addressController");
+    print(
+        "name : $nameController email: $emailController Address : $addressController");
 
-    await databaseReference.collection("user_collection")
+    await databaseReference
+        .collection("user_collection")
         .document("user_details")
         .setData({
       'name': nameController.text,
@@ -91,7 +104,7 @@ class FirebaseDemoWidget extends StatelessWidget {
     //   'address': addressController.text
     // });
 
- //  print(ref.documentID);
+    //  print(ref.documentID);
   }
 
   void getData() {
@@ -100,10 +113,9 @@ class FirebaseDemoWidget extends StatelessWidget {
         .getDocuments()
         .then((QuerySnapshot snapshot) {
       snapshot.documents.forEach((f) =>
-        //  print('${f.data}}')
-      Scaffold.of(context1)
-          .showSnackBar(SnackBar(content: Text(f.data.toString())))
-      );
+          //  print('${f.data}}')
+          Scaffold.of(context1)
+              .showSnackBar(SnackBar(content: Text(f.data.toString()))));
     });
   }
 
