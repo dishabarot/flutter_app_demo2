@@ -17,10 +17,11 @@ class WelcomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text('Welcome User',
-                  style: Theme.of(context).textTheme.headline4),
+                  style: Theme.of(context).textTheme.title),
               SizedBox(height: 8),
               Text('Your Credentials'),
-              Text('Email :  '+ todo.email + '\nPasword is : '+todo.password),
+              Text('Email :  '+ todo.email + '\nPasword : '+todo.password,
+                  style: Theme.of(context).textTheme.title),
             ],
           ),
         ),

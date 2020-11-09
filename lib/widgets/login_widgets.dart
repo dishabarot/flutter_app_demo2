@@ -1,13 +1,12 @@
-import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app_demo2/Pages/wecome_screen.dart';
+import 'package:flutter_app_demo2/theme/WidgetsTheme.dart';
 
 class Todo {
   final String email;
   final String password;
-
   Todo(this.email, this.password);
 }
 
@@ -17,7 +16,8 @@ class LoginWidgets extends StatelessWidget {
   Todo todos;
   LoginWidgets({Key key, @required this.todos}) : super(key: key);
   BuildContext context1;
-
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     context1 = context;
@@ -31,9 +31,9 @@ class LoginWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                EmailInput(),
+                EmailInputThme( emailController, "email",),
                 SizedBox(height: 16,),
-                PasswordInput(),
+                PasswordInputThme( passwordController, "password",),
                 SizedBox(height: 16,),
                 SizedBox(
                     width: double.infinity,
@@ -46,57 +46,15 @@ class LoginWidgets extends StatelessWidget {
       ),
     );
   }
-
-  Widget EmailInput() {
-    return TextFormField(
-      keyboardType: TextInputType.emailAddress ,
-      decoration: InputDecoration(
-        labelText: "Email",
-        hintText: "abc@gmail.com",
-        suffixIcon: Icon(Icons.person_outline),
-        labelStyle: TextStyle(color: Colors.black,)
-      ),
-      textInputAction: TextInputAction.next,
-      validator: (email)=>EmailValidator.validate(email)? null:"Invalid email address",
-      onSaved: (email)=> _email = email,
-    );
-  }
-
-  Widget PasswordInput() {
-    return TextFormField(
-      keyboardType: TextInputType.text ,
-      obscureText: true,
-      decoration: InputDecoration(
-        labelText: "Password",
-        suffixIcon: Icon(Icons.lock),
-          labelStyle: TextStyle(color: Colors.black,)
-
-      ),
-      textInputAction: TextInputAction.done,
-      validator: (password){
-        Pattern pattern =
-            r'(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).{8,}$';
-        RegExp regex = new RegExp(pattern);
-        if (!regex.hasMatch(password))
-          return 'Invalid password';
-        else
-          return null;
-      },
-      onSaved: (password)=> _password = password,
-    );
-  }
-
   RaisedButton LoginButton(){
     return  RaisedButton(
-      color:Colors.redAccent,
       onPressed: (){
         if(_formKey.currentState.validate()){
           _formKey.currentState.save();
-
           loginSuccess();
         }
       },
-      child: Text("Submit",style: TextStyle(color: Colors.white),),
+      child: Text("Submit"),
     );
   }
 
@@ -111,10 +69,10 @@ class LoginWidgets extends StatelessWidget {
   }
 
   void loginSuccess(){
-    print("Email : "+_email+" password: "+_password);
+    print("Email : "+emailController.text+" password: "+passwordController.text);
     final todo = Todo(
-      _email,
-      _password,
+      emailController.text,
+      passwordController.text,
     );
     Navigator.push(context1,MaterialPageRoute(builder: (context)=>new WelcomePage(todo),
     )

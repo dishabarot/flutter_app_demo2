@@ -7,13 +7,10 @@ class WaraiListView extends StatefulWidget {
 }
 
 class _WaraiListViewState extends State<WaraiListView> {
-  final List<String> _names = <String>["Books"];
-
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      backgroundColor: Colors.black,
         body: Column(
             children: <Widget>[
               Expanded(

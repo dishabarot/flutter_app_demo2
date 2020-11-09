@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 class FirstDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: Text("Flutter App Demo"),
         ),
@@ -23,8 +21,9 @@ class FirstDemo extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text('Flutter McFlutter',
-                        style: Theme.of(context).textTheme.headline),
-                    Text('Experienced App Developer'),
+                        style: Theme.of(context).textTheme.title),
+                    Text('Experienced App Developer',
+                        style: Theme.of(context).textTheme.subtitle),
                   ],
                 ),
               ],
@@ -39,7 +38,6 @@ class FirstDemo extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 }

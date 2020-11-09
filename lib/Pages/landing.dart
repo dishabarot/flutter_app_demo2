@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Pages/firebase_demo.dart';
 import 'package:flutter_app_demo2/Pages/hero_animation_screen.dart';
 import 'package:flutter_app_demo2/Pages/login_screen.dart';
 import 'package:flutter_app_demo2/Route/route_constants.dart';
@@ -24,8 +25,8 @@ class _ListViewPagesState extends State<ListViewPages> {
     RouteConstants.PATH_WARAI,
     RouteConstants.PATH_LOGIN,
     RouteConstants.PATH_HERO,
+    RouteConstants.PATH_FIREBASE,
   ];
-  final TextStyle _biggerFont = const TextStyle(fontSize: 18);
   @override
   Widget build(BuildContext context) {
     return Scaffold( // Add from here...
@@ -57,7 +58,7 @@ class _ListViewPagesState extends State<ListViewPages> {
     return ListTile(
       title: Text(
         page_name,
-        style: _biggerFont,
+        style: Theme.of(context).textTheme.title,
       ),
       onTap: () {
         print("Inside : "+page_name);
@@ -69,6 +70,8 @@ class _ListViewPagesState extends State<ListViewPages> {
           Navigator.push(context,MaterialPageRoute(builder: (context)=>new LoginScreen()));
         else if(page_name == RouteConstants.PATH_HERO)
           Navigator.push(context,MaterialPageRoute(builder: (context)=>new HeroAnimationScreen()));
+        else if(page_name == RouteConstants.PATH_FIREBASE)
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>new FirebaseDemo()));
       },
     );
   }

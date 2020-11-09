@@ -5,19 +5,16 @@ class LoginScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Colors.white,
+     //   elevation: 0.0,
+     //   backgroundColor: Colors.white,
         leading: IconButton(
-            icon: new Icon(Icons.arrow_back_ios,color: Colors.black,
-            ), onPressed: () {
+            icon: new Icon(Icons.arrow_back_ios),
+          onPressed: () {
           Navigator.of(context).pop(true);
         },
         ),
-        title: Text("Back",style: TextStyle(
-          color: Colors.black
-        ),),
+        title: Text("Back"),
       ),
       body: LoginBody(),
     );
@@ -28,7 +25,6 @@ class LoginBody extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -60,19 +56,14 @@ class TopWidgts extends StatelessWidget{
           Padding(
             padding: const EdgeInsets.only(left: 8.0,top: 20.0),
             child: Text("Proceed With Your",
-              style: TextStyle(
-                fontSize: 20
-              ),
+              style: Theme.of(context).textTheme.title,
             ),
           ),
 
           Padding(
             padding: const EdgeInsets.only(left: 8.0,top: 5.0),
             child: Text("Login",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w900,
-              ),
+              style: Theme.of(context).textTheme.title,
             ),
           ),
         ],

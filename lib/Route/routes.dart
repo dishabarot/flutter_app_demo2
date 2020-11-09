@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Pages/firebase_demo.dart';
 import 'package:flutter_app_demo2/Pages/first_demo.dart';
 import 'package:flutter_app_demo2/Pages/hero_animation_screen.dart';
 import 'package:flutter_app_demo2/Pages/landing.dart';
@@ -26,6 +27,9 @@ class RouteGenerator {
        case RouteConstants.PATH_HERO:
         print("Inside  : " + page_name.name);
         return MaterialPageRoute(builder: (context) => new HeroAnimationScreen());
+      case RouteConstants.PATH_FIREBASE:
+        print("Inside  : " + page_name.name);
+        return MaterialPageRoute(builder: (context) => new FirebaseDemo());
       default:
       // If there is no such named route in the switch statement, e.g. /third
         print("default we got route : " + page_name.name);
