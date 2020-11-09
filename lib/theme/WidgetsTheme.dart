@@ -149,3 +149,30 @@ class EmailInputThme extends StatelessWidget
     );
   }
 }
+
+class ImageTheme extends StatelessWidget {
+  String img_name;
+
+  ImageTheme(this.img_name);
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(img_name,
+      alignment: AlignmentDirectional.center,
+    );
+  }
+}
+
+class smallImageTheme extends StatelessWidget
+{
+  String img_name;
+  smallImageTheme(this.img_name);
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(img_name,
+      height: 100,
+      width: 100,
+      alignment: AlignmentDirectional.center,
+    );
+  }
+}

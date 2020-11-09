@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/theme/WidgetsTheme.dart';
 
 class WaraiListRow extends StatelessWidget {
   @override
@@ -55,15 +56,12 @@ class WaraiListRowImage extends StatelessWidget {
         alignment: AlignmentDirectional.center,
         children: <Widget>[
           Align(
-            child: Image.asset('assets/images/img1.jpg'),
+           // child: Image.asset('assets/images/img1.jpg'),
+            child: ImageTheme('assets/images/img1.jpg'),
           ),
           Align(
-            child: Image.asset(
-              'assets/images/ic_play.png',
-              height: 100,
-              width: 100,
-            ),
-            alignment: AlignmentDirectional.center,
+            child: smallImageTheme(
+              'assets/images/ic_play.png',),
           ),
         ],
       ),
