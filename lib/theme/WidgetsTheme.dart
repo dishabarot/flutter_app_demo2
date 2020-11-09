@@ -138,9 +138,7 @@ class EmailInputThme extends StatelessWidget {
 
 class ImageTheme extends StatelessWidget {
   String img_name;
-
   ImageTheme(this.img_name);
-
   @override
   Widget build(BuildContext context) {
     return Image.asset(
