@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_app_demo2/Constants.dart';
 import 'package:flutter_app_demo2/Pages/wecome_screen.dart';
 import 'package:flutter_app_demo2/theme/WidgetsTheme.dart';
 
@@ -12,7 +12,6 @@ class Todo {
 
 class LoginWidgets extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
-  String _email,_password= "";
   Todo todos;
   LoginWidgets({Key key, @required this.todos}) : super(key: key);
   BuildContext context1;
@@ -31,9 +30,9 @@ class LoginWidgets extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                EmailInputThme( emailController, "email",),
+                EmailInputThme( emailController, Constants.TEXT_EMAIL,),
                 SizedBox(height: 16,),
-                PasswordInputThme( passwordController, "password",),
+                PasswordInputThme( passwordController, Constants.TEXT_PASSWORD,),
                 SizedBox(height: 16,),
                 SizedBox(
                     width: double.infinity,
@@ -54,7 +53,7 @@ class LoginWidgets extends StatelessWidget {
           loginSuccess();
         }
       },
-      child: Text("Submit"),
+      child: Text(Constants.TEXT_SUBMIT),
     );
   }
 
@@ -64,12 +63,12 @@ class LoginWidgets extends StatelessWidget {
 
       },
       textColor: Colors.black54,
-      child: Text('Forgot Password?'),
+      child: Text(Constants.TEXT_FORGOT_PASSWORD),
     );
   }
 
   void loginSuccess(){
-    print("Email : "+emailController.text+" password: "+passwordController.text);
+    print(Constants.TEXT_EMAIL+" : "+emailController.text+" "+Constants.TEXT_PASSWORD+" : "+passwordController.text);
     final todo = Todo(
       emailController.text,
       passwordController.text,

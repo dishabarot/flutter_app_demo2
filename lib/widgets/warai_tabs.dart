@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Constants.dart';
 
 class WaraiTabs extends StatefulWidget {
   @override
@@ -56,13 +57,13 @@ class _TopTabs extends State<WaraiTabs> {
               child: Row(
                 children: [
                   Image.asset(
-                    'assets/images/ic_top.png',
+                    Constants.IMG_IC_TOP,
                     color: Colors.white,
                     height: 20,
                     width: 20,
                   ),
                   Text(
-                    "Top",
+                    Constants.TEXT_TOP,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
@@ -84,13 +85,13 @@ class _TopTabs extends State<WaraiTabs> {
               child: Row(
                 children: [
                   Image.asset(
-                    'assets/images/ic_hot.png',
+                    Constants.IMG_IC_HOT,
                     color: Colors.white,
                     height: 20,
                     width: 20,
                   ),
                   Text(
-                    "Hot",
+                    Constants.TEXT_HOT,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,
@@ -115,13 +116,13 @@ class _TopTabs extends State<WaraiTabs> {
               child: Row(
                 children: [
                   Image.asset(
-                    'assets/images/ic_new.png',
+                    Constants.IMG_IC_NEW,
                     color: Colors.white,
                     height: 20,
                     width: 20,
                   ),
                   Text(
-                    "New",
+                    Constants.TEXT_NEW,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.white,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'dart:math' as math;
 
+import 'package:flutter_app_demo2/Constants.dart';
+
 class HeroAnimationScreen extends StatelessWidget {
   static const double kMinRadius = 32.0;
   static const double kMaxRadius = 128.0;
@@ -12,7 +14,7 @@ class HeroAnimationScreen extends StatelessWidget {
     timeDilation = 4.0;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Radial Transition Demo'),
+        title: const Text(Constants.TEXT_ANIM_APPBAR),
       ),
       body: Container(
         padding: const EdgeInsets.all(33.0),
@@ -20,9 +22,9 @@ class HeroAnimationScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildHero(context, 'assets/images/mountain_img.jpg', 'Mountain'),
-            _buildHero(context, 'assets/images/river_img.jpg', 'River'),
-            _buildHero(context, 'assets/images/sea_img.jpeg', 'Sea'),
+            _buildHero(context, Constants.IMG_MOUNTAIN, Constants.TEXT_MOUNTAIN),
+            _buildHero(context, Constants.IMG_RIVER, Constants.TEXT_RIVER),
+            _buildHero(context, Constants.IMG_SEA, Constants.TEXT_SEA),
           ],
         ),
       ),

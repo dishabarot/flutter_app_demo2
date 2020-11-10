@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Constants.dart';
 import 'package:flutter_app_demo2/Pages/firebase_demo.dart';
 import 'package:flutter_app_demo2/Pages/first_demo.dart';
 import 'package:flutter_app_demo2/Pages/hero_animation_screen.dart';
@@ -40,10 +41,10 @@ class RouteGenerator {
     return MaterialPageRoute(builder: (_) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('Error'),
+          title: Text(Constants.TEXT_ERROR),
         ),
         body: Center(
-          child: Text('Look like you have take wrong turn!'),
+          child: Text(Constants.TEXT_ERROR_ROUTES),
         ),
       );
     });

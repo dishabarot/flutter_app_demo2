@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Constants.dart';
 import 'package:flutter_app_demo2/widgets/warai_tabs.dart';
 import 'package:flutter_app_demo2/widgets/warai_main_listview.dart';
 
@@ -15,16 +16,16 @@ class _MyHomePageState extends State<WaraiScreen> {
         appBar: AppBar(
           leading: IconButton(
               icon: new Image.asset(
-                'assets/images/nav_icon.png',
+                Constants.IMG_NAV_ICON,
                 color: Colors.white,
                 height: 20,
                 width: 20,
               ),
               onPressed: null),
-          title: Center(child: Text("WARAI")),
+          title: Center(child: Text(Constants.TEXT_WARAI_APPBAR)),
         actions: [
             Image.asset(
-              'assets/images/ic_user.png',
+              Constants.IMG_USER_ICON,
               height: 30,
               width: 30,
             ),

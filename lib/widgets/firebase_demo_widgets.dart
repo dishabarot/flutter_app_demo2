@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Constants.dart';
 import 'package:flutter_app_demo2/theme/WidgetsTheme.dart';
 
 class FirebaseDemoWidget extends StatelessWidget {
@@ -25,21 +26,21 @@ class FirebaseDemoWidget extends StatelessWidget {
               children: [
                 TextInputTheme(
                   nameController,
-                  "Name",
+                  Constants.TEXT_NAME,
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 EmailInputThme(
                   nameController,
-                  "email",
+                  Constants.TEXT_EMAIL,
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 TextInputTheme(
                   nameController,
-                  "Address",
+                  Constants.TEXT_ADDRESS,
                 ),
                 AllButtons()
               ],
@@ -56,25 +57,25 @@ class FirebaseDemoWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
         RaisedButton(
-          child: Text('Create Record'),
+          child: Text(Constants.TEXT_CREATE),
           onPressed: () {
             createRecord();
           },
         ),
         RaisedButton(
-          child: Text('View Record'),
+          child: Text(Constants.TEXT_VIEW),
           onPressed: () {
             getData();
           },
         ),
         RaisedButton(
-          child: Text('Update Record'),
+          child: Text(Constants.TEXT_UPDATE),
           onPressed: () {
             updateData();
           },
         ),
         RaisedButton(
-          child: Text('Delete Record'),
+          child: Text(Constants.TEXT_DELETE),
           onPressed: () {
             deleteData();
           },
@@ -86,22 +87,22 @@ class FirebaseDemoWidget extends StatelessWidget {
   void createRecord() async {
     print("Collections : $databaseReference");
     print(
-        "name : $nameController email: $emailController Address : $addressController");
+        Constants.TEXT_NAME +" : "+ nameController.text +" "+Constants.TEXT_EMAIL +" : " + emailController.text+ " " +Constants.TEXT_ADDRESS +" : " +addressController.text);
 
     await databaseReference
         .collection("user_collection")
         .document("user_details")
         .setData({
-      'name': nameController.text,
-      'email': emailController.text,
-      'address': addressController.text
+      Constants.TEXT_NAME: nameController.text,
+      Constants.TEXT_EMAIL: emailController.text,
+      Constants.TEXT_ADDRESS: addressController.text
     });
 
     // DocumentReference ref = await databaseReference.collection("user_collection")
     //     .add({
-    //   'name': nameController.text,
-    //   'email': emailController.text,
-    //   'address': addressController.text
+    //   Constants.TEXT_NAME: nameController.text,
+    //   Constants.TEXT_EMAIL: emailController.text,
+    //   Constants.TEXT_ADDRESS: addressController.text
     // });
 
     //  print(ref.documentID);
@@ -125,9 +126,9 @@ class FirebaseDemoWidget extends StatelessWidget {
           .collection('user_collection')
           .document('user_details')
           .updateData({
-        'name': nameController.text,
-        'email': emailController.text,
-        'address': addressController.text
+        Constants.TEXT_NAME: nameController.text,
+        Constants.TEXT_EMAIL: emailController.text,
+        Constants.TEXT_ADDRESS: addressController.text
       });
     } catch (e) {
       print(e.toString());

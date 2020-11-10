@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Startup Name Generator',
       theme: MyTheme.myThemeData,
+      darkTheme: MyTheme.myThemeData,
       initialRoute: "/",
       onGenerateRoute: RouteGenerator.generateRoute,
     );

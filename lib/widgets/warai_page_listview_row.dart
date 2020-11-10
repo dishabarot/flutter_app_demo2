@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Constants.dart';
 import 'package:flutter_app_demo2/theme/WidgetsTheme.dart';
 
 class WaraiListRow extends StatelessWidget {
@@ -35,7 +36,7 @@ class WaraiListRowName extends StatelessWidget {
             ),
           ),
           Image.asset(
-            'assets/images/ic_option.png',
+            Constants.IMG_IC_OPTION,
             color: Colors.white,
             height: 20,
             width: 20,
@@ -56,12 +57,11 @@ class WaraiListRowImage extends StatelessWidget {
         alignment: AlignmentDirectional.center,
         children: <Widget>[
           Align(
-           // child: Image.asset('assets/images/img1.jpg'),
-            child: ImageTheme('assets/images/img1.jpg'),
+            child: ImageTheme(Constants.IMG_WARAI),
           ),
           Align(
             child: smallImageTheme(
-              'assets/images/ic_play.png',),
+              Constants.IMG_IC_PLAY,),
           ),
         ],
       ),
@@ -86,7 +86,7 @@ class WaraiListLikes extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 5.0),
                     child: Image.asset(
-                      'assets/images/ic_up.png',
+                      Constants.IMG_IC_UP,
                       color: Colors.white,
                       height: 20,
                       width: 20,
@@ -112,7 +112,7 @@ class WaraiListLikes extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 5.0),
                       child: Image.asset(
-                        'assets/images/ic_down.png',
+                        Constants.IMG_IC_DOWN,
                         color: Colors.white,
                         height: 20,
                         width: 20,
@@ -138,7 +138,7 @@ class WaraiListLikes extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 5.0),
                     child: Image.asset(
-                      'assets/images/ic_comment.png',
+                      Constants.IMG_IC_COMMENT,
                       color: Colors.white,
                       height: 20,
                       width: 20,

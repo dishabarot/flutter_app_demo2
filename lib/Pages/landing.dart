@@ -9,9 +9,7 @@ import 'package:flutter_app_demo2/Pages/warai_screen.dart';
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListViewPages(),
-    );
+    return ListViewPages();
   }
 }
 

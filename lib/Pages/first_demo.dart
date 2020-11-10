@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Constants.dart';
 
 class FirstDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Flutter App Demo"),
+          title: Text(Constants.FIRST_DEMO_APPBAR),
         ),
         body: Column(
           mainAxisSize: MainAxisSize.min,
@@ -20,9 +21,9 @@ class FirstDemo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('Flutter McFlutter',
+                    Text( Constants.FIRST_DEMO_TITLE,
                         style: Theme.of(context).textTheme.title),
-                    Text('Experienced App Developer',
+                    Text(Constants.FIRST_DEMO_SUBTITLE,
                         style: Theme.of(context).textTheme.subtitle),
                   ],
                 ),
