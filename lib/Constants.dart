@@ -50,6 +50,7 @@ class Constants
   static const String IMG_IC_HOT="assets/images/ic_hot.png";
   static const String IMG_IC_DOWN="assets/images/ic_down.png";
   static const String IMG_IC_COMMENT="assets/images/ic_comment.png";
+  static const String IMG_EYE="assets/images/img_eye.png";
 
 
 }

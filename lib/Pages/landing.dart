@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo2/Pages/api_calling_demo.dart';
+import 'package:flutter_app_demo2/Pages/container_demo_screen.dart';
 import 'package:flutter_app_demo2/Pages/firebase_demo.dart';
 import 'package:flutter_app_demo2/Pages/hero_animation_screen.dart';
+import 'package:flutter_app_demo2/Pages/images_demo.dart';
 import 'package:flutter_app_demo2/Pages/login_screen.dart';
 import 'package:flutter_app_demo2/Route/route_constants.dart';
 import 'package:flutter_app_demo2/Pages/first_demo.dart';
 import 'package:flutter_app_demo2/Pages/warai_screen.dart';
+
+import 'formdata_demo.dart';
 
 class LandingPage extends StatelessWidget {
   @override
@@ -24,6 +29,10 @@ class _ListViewPagesState extends State<ListViewPages> {
     RouteConstants.PATH_LOGIN,
     RouteConstants.PATH_HERO,
     RouteConstants.PATH_FIREBASE,
+    RouteConstants.PATH_APIDEMO,
+    RouteConstants.PATH_CONTAINER,
+    RouteConstants.PATH_IMAGES,
+    RouteConstants.PATH_FORMDATA,
   ];
   @override
   Widget build(BuildContext context) {
@@ -70,6 +79,14 @@ class _ListViewPagesState extends State<ListViewPages> {
           Navigator.push(context,MaterialPageRoute(builder: (context)=>new HeroAnimationScreen()));
         else if(page_name == RouteConstants.PATH_FIREBASE)
           Navigator.push(context,MaterialPageRoute(builder: (context)=>new FirebaseDemo()));
+        else if(page_name == RouteConstants.PATH_APIDEMO)
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>new ApiCallingDemo()));
+        else if(page_name == RouteConstants.PATH_CONTAINER)
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>new ContainerDemo()));
+      else if(page_name == RouteConstants.PATH_IMAGES)
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>new ImagesDemo()));
+      else if(page_name == RouteConstants.PATH_FORMDATA)
+          Navigator.push(context,MaterialPageRoute(builder: (context)=>new FormDataDemo()));
       },
     );
   }

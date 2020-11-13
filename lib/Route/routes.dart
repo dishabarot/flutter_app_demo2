@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_demo2/Constants.dart';
+import 'package:flutter_app_demo2/Pages/api_calling_demo.dart';
+import 'package:flutter_app_demo2/Pages/container_demo_screen.dart';
 import 'package:flutter_app_demo2/Pages/firebase_demo.dart';
 import 'package:flutter_app_demo2/Pages/first_demo.dart';
+import 'package:flutter_app_demo2/Pages/formdata_demo.dart';
 import 'package:flutter_app_demo2/Pages/hero_animation_screen.dart';
+import 'package:flutter_app_demo2/Pages/images_demo.dart';
 import 'package:flutter_app_demo2/Pages/landing.dart';
 import 'package:flutter_app_demo2/Pages/login_screen.dart';
 import 'package:flutter_app_demo2/Pages/warai_screen.dart';
@@ -31,6 +35,18 @@ class RouteGenerator {
       case RouteConstants.PATH_FIREBASE:
         print("Inside  : " + page_name.name);
         return MaterialPageRoute(builder: (context) => new FirebaseDemo());
+      case RouteConstants.PATH_APIDEMO:
+        print("Inside  : " + page_name.name);
+        return MaterialPageRoute(builder: (context) => new ApiCallingDemo());
+      case RouteConstants.PATH_CONTAINER:
+        print("Inside  : " + page_name.name);
+        return MaterialPageRoute(builder: (context) => new ContainerDemo());
+      case RouteConstants.PATH_IMAGES:
+        print("Inside  : " + page_name.name);
+        return MaterialPageRoute(builder: (context) => new ImagesDemo());
+      case RouteConstants.PATH_FORMDATA:
+        print("Inside  : " + page_name.name);
+        return MaterialPageRoute(builder: (context) => new FormDataDemo());
       default:
       // If there is no such named route in the switch statement, e.g. /third
         print("default we got route : " + page_name.name);
